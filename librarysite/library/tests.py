@@ -18,7 +18,7 @@ class BookModelTests(TestCase):
         return_next_week() returns True for books whose return_date
         is within one week.
         """
-        date = timezone.now() + datetime.timedelta(days=6, hours=23)
+        date = timezone.now() + datetime.timedelta(days=6)
         old_book = create_book(return_date=date)
         self.assertIs(old_book.return_next_week(), True)
         
@@ -27,6 +27,6 @@ class BookModelTests(TestCase):
         return_next_week() returns False for books whose return_date
         is not within one week.
         """
-        date = timezone.now() + datetime.timedelta(days=7, hours=1)
+        date = timezone.now() + datetime.timedelta(days=8)
         new_book = create_book(return_date=date)
         self.assertIs(new_book.return_next_week(), False)

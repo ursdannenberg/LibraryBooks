@@ -19,4 +19,4 @@ class Book(models.Model):
         return self.title
     
     def return_next_week(self):
-        return self.return_date <= timezone.now() + datetime.timedelta(days=7)
+        return self.return_date <= timezone.now().date() + datetime.timedelta(days=7)

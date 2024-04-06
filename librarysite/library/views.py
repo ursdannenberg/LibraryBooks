@@ -11,4 +11,4 @@ class IndexView(generic.ListView):
         """
         Return all list of all books.
         """
-        return Book.objects.all()
+        return Book.objects.all().order_by("return_date")

@@ -3,6 +3,7 @@
     <table>
       <tr>
         <th>Title</th>
+        <th>Library</th>
         <th>Return date</th>
         <th>Return next week?</th>
         <th>Can the loan be extended?</th>
@@ -10,6 +11,7 @@
       {% for book in book_list %}
         <tr>  
           <td>{{ book.title }}</td>
+          <td>{{ book.library }}</td>
           <td>{{ book.return_date }}</td>
           <td>{% if book.return_next_week %}&#x2713;{% else %}X{% endif %}</td>
           <td>{% if book.extendable %}&#x2713;{% else %}X{% endif %}</td>

@@ -11,8 +11,8 @@
         <tr>  
           <td>{{ book.title }}</td>
           <td>{{ book.return_date }}</td>
-          <td>{{ book.return_next_week }}</td>
-          <td>{{ book.extendable }}</td>
+          <td>{% if book.return_next_week %}&#x2713;{% else %}X{% endif %}</td>
+          <td>{% if book.extendable %}&#x2713;{% else %}X{% endif %}</td>
         </tr>
       {% endfor %}
     </table>

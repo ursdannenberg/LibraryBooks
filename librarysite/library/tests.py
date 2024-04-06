@@ -3,14 +3,15 @@ import datetime
 from django.test import TestCase
 from django.utils import timezone
 
-from .models import Book
+from .models import Book, Library
 
 # Create your tests here.
 def create_book(return_date):
     """
     Create a book with the given `return_date`.
     """
-    return Book.objects.create(title='Title', return_date=return_date, library='Library')
+    library = Library.objects.create(name='Library')
+    return Book.objects.create(title='Title', return_date=return_date, library=library)
 
 class BookModelTests(TestCase):
     def test_return_next_week_with_old_book(self):

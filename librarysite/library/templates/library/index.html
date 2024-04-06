@@ -1,0 +1,21 @@
+<h1>Loaned books</h1>
+{% if book_list %}
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Return date</th>
+        <th>Return next week?</th>
+        <th>Can the loan be extended?</th>
+      </tr>
+      {% for book in book_list %}
+        <tr>  
+          <td>{{ book.title }}</td>
+          <td>{{ book.return_date }}</td>
+          <td>{{ book.return_next_week }}</td>
+          <td>{{ book.extendable }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+{% else %}
+    <p>No books are loaned.</p>
+{% endif %}

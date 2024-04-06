@@ -4,5 +4,8 @@ from .models import Book, Library
 
 # Register your models here.
 
-admin.site.register(Book)
+class BookAdmin(admin.ModelAdmin):
+    list_display = ["title", "return_date", "return_next_week"]
+    
+admin.site.register(Book, BookAdmin)
 admin.site.register(Library)
